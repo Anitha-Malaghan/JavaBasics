@@ -1,0 +1,45 @@
+-----------------------
+Throwble
+-----------------------
+-In Java, Throwable is the superclass of all errors and exceptions in the Java language.
+
+-It is a direct subclass of Object.
+
+-Only objects that are instances of this class (or its subclasses) can be thrown by
+the Java Virtual Machine or can be caught by a catch clause.
+_________________________________________
+Methods available in Throwble class
+-----------------------------------------
+
+1. Exception Information
+
+    String getMessage(): Returns the detail message string of this throwable.
+
+    String getLocalizedMessage(): Creates a localized description of this throwable.
+
+    String toString(): Returns a short description of this throwable.
+
+2. Stack Trace Information
+
+    void printStackTrace(): Prints this throwable and its backtrace to the standard error stream.
+
+    void printStackTrace(PrintStream s): Prints this throwable and its backtrace to the specified print stream.
+
+    void printStackTrace(PrintWriter s): Prints this throwable and its backtrace to the specified print writer.
+
+    StackTraceElement[] getStackTrace(): Provides programmatic access to the stack trace information.
+
+    void setStackTrace(StackTraceElement[] stackTrace): Sets the stack trace elements that will be returned by getStackTrace() and printed by printStackTrace().
+
+3. Cause Information
+
+    Throwable getCause(): Returns the cause of this throwable or null if the cause is nonexistent or unknown.
+
+    Throwable initCause(Throwable cause): Initializes the cause of this throwable to the specified value.
+
+4. Suppressed Exceptions (since Java 7)
+
+    void addSuppressed(Throwable exception): Adds a suppressed exception to this throwable.
+
+    Throwable[] getSuppressed(): Returns an array containing all of the exceptions that were suppressed to deliver this throwable.
+Example

@@ -1,0 +1,181 @@
+Exception handling:
+-------------------------------
+    -Exception handling in Java is a powerful mechanism that handles runtime errors
+    to maintain the normal flow of the application's execution.
+    -Java provides a robust and object-oriented way to manage exceptions,
+    ensuring that errors are managed in a consistent and predictable manner.
+-------------------------------
+Why?
+-------------------------------
+- Exception handling is crucial for building robust Java applications.
+
+- By using try-catch blocks, throwing exceptions, and creating custom exceptions,
+you can effectively manage errors and ensure your application behaves predictably
+in the face of unexpected conditions.
+-------------------------------
+1. Understanding Exceptions
+-------------------------------
+An exception is an event that disrupts the normal flow of the program. It is an object which is thrown at runtime.
+
+-------------------------------
+2. Hierarchy of Exceptions
+-----------------------------------
+Exceptions in Java are organized in a hierarchy.
+The root class is java.lang.Throwable, which has two main subclasses:
+
+    1. Error: Represents serious problems that a reasonable
+    application should not try to catch (e.g., OutOfMemoryError).
+
+    2 Exception: Represents conditions that a reasonable
+    application might want to catch (e.g., IOException, SQLException).
+
+
+Under Exception, there's a special category called RuntimeException (unchecked exceptions).
+
+-----------------------------------
+3. Types of Exceptions
+----------------------------------
+    1. Checked Exceptions: These are exceptions that are checked at compile-time.
+    The programmer must handle these exceptions. Examples include IOException, SQLException.
+
+    2. Unchecked Exceptions: These are exceptions that occur during runtime and are not checked at compile-time.
+    Examples include NullPointerException, ArrayIndexOutOfBoundsException.
+----------------------------------------
+4. Exception Handling Keywords
+----------------------------------------
+Java provides five keywords for exception handling:
+
+    try
+    catch
+    finally
+    throw
+    throws
+    -------------------------------------------------------------------------------
+    1.Try-Catch Block: The try block contains code that might throw an exception,
+    and the catch block contains code to handle that exception.
+
+        try {
+            // Code that might throw an exception
+        } catch (ExceptionType1 e1) {
+            // Handle exception of type ExceptionType1
+        } catch (ExceptionType2 e2) {
+            // Handle exception of type ExceptionType2
+        } finally {
+            // Code that will always execute, regardless of an exception
+        }
+    --------------------------------------------------------------------------
+    2.Finally Block
+              The finally block always executes, whether an exception occurs or not.
+              It is used to perform cleanup activities, such as closing a file or releasing resources.
+
+              try {
+                  // Code that might throw an exception
+              } catch (Exception e) {
+                  // Handle exception
+              } finally {
+                  // Cleanup code, always executed
+              }
+    --------------------------------------------------------------------------
+    3. Throwing Exceptions
+        To throw an exception explicitly, use the throw keyword.
+
+        throw new IOException("File not found");
+     --------------------------------------------------------------------------
+     4. Declaring Exceptions
+        If a method can throw a checked exception, it must declare this using the throws keyword.
+
+
+        public void readFile() throws IOException {
+            // Code that might throw an IOException
+        }
+
+     --------------------------------------------------------------------------
+      5. Common Exception Classes
+
+        IOException: For input/output errors.
+
+        SQLException: For database errors.
+
+        ClassNotFoundException: When a class is not found.
+
+        ArithmeticException: For arithmetic errors (e.g., divide by zero).
+
+        ArrayIndexOutOfBoundsException: For illegal array access.
+
+        NullPointerException: When trying to use null as if it were an object.
+      ----------------------------------------------------------------------------
+      6. Custom Exceptions
+        You can create your own exception classes by extending Exception or RuntimeException.
+
+        class CustomException extends Exception {
+            public CustomException(String message) {
+                super(message);
+            }
+        }
+    -------------------------------------------------------------------
+        Example: Exception Handling in Action
+        Here is an example demonstrating various aspects of exception handling in Java:
+
+
+        import java.io.*;
+
+        public class ExceptionHandlingDemo {
+
+            public static void main(String[] args) {
+                try {
+                    readFile("nonexistentfile.txt");
+                } catch (CustomException e) {
+                    System.out.println("Caught Custom Exception: " + e.getMessage());
+                } catch (IOException e) {
+                    System.out.println("Caught IOException: " + e.getMessage());
+                } finally {
+                    System.out.println("Execution of finally block");
+                }
+            }
+
+            public static void readFile(String fileName) throws IOException, CustomException {
+                if (fileName.equals("nonexistentfile.txt")) {
+                    throw new CustomException("File does not exist");
+                }
+
+                FileInputStream file = new FileInputStream(fileName);
+                int x;
+                while ((x = file.read()) != -1) {
+                    System.out.print((char) x);
+                }
+                file.close();
+            }
+
+            // Custom Exception Class
+            static class CustomException extends Exception {
+                public CustomException(String message) {
+                    super(message);
+                }
+
+                @Override
+                public String getLocalizedMessage() {
+                    return "Localized message: " + super.getMessage();
+                }
+            }
+        }
+
+        ------------------------------------------------------------------------
+        Detailed Explanation
+        ------------------------------------------------------------------------
+        Custom Exception: The CustomException class is defined to demonstrate how to create and
+        use custom exceptions.
+
+        readFile Method: This method attempts to read a file and throws exceptions if the file
+        does not exist or cannot be read.
+
+        main Method: The main method uses a try-catch-finally block to call readFile and handle
+        the exceptions that might be thrown.
+
+        Throwing Custom Exception: The readFile method throws a CustomException if the specified
+        file name matches "nonexistentfile.txt".
+
+        Handling Exceptions: The catch blocks in the main method handle CustomException
+        and IOException separately.
+
+        Finally Block: The finally block is always executed, ensuring that any necessary cleanup actions are
+        performed.

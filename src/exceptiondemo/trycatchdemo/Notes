@@ -1,0 +1,27 @@
+Exception:
+- An exception in Java is an event that disrupts the normal flow of a program's execution.
+
+- It is an object that is thrown at runtime when an abnormal condition arises in the program,
+  such as an error, that the regular code cannot handle.
+
+- Exceptions are used to handle errors and other exceptional events in a structured way,
+  allowing the program to continue running or terminate gracefully.
+
+
+------------------------------------------------------
+Key Components of Structured Error Handling in Java
+------------------------------------------------------
+
+1. Try Block: Encapsulates the code that might throw an exception.
+
+2. Catch Block: Contains the code to handle the exception if one occurs.
+
+3. Finally Block: Contains code that will always execute after the try and catch blocks,
+regardless of whether an exception was thrown or caught.
+
+4. Throw Statement: Used to explicitly throw an exception.
+
+5. Throws Clause: Declares that a method might throw certain exceptions,
+informing callers of the potential need to handle these exceptions.(ChatGPT)
+
+
