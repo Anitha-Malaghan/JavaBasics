@@ -1,4 +1,4 @@
-package interfacedemo;
+package encapsulationdemo.interfacedemo;
 
 public class Dog implements Animal {
     @Override
