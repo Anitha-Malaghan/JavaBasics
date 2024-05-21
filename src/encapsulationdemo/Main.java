@@ -4,12 +4,10 @@ public class Main {
     public static void main(String[] args){
         Person personObj = new Person();
         /*
-        java: cannot find symbol
-        symbol:   class personObj
-        location: class encapsulationdemo.Main
+        java: name has private access in encapsulationdemo.Person
          */
 
-        //personObj name ="Anitha";
+        //personObj.name ="Anitha";
 
         /*
         java: name has private access in encapsulationdemo.Person
