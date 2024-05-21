@@ -1,5 +1,5 @@
 package encapsulationdemo.interfacedemo;
 
-public interface Animal {
+interface Animal {
     public void makeSound();
 }
