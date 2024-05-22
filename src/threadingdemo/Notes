@@ -1,0 +1,177 @@
+Java Threads
+-------------------------------------------------
+   -Threads in Java are a fundamental part of concurrent programming, allowing multiple tasks to
+    run in parallel within a single process.
+   -Multithreading is achieved using the Thread class and the Runnable interface
+
+   -Threads allows a program to operate more efficiently by doing multiple things at the same time.
+
+   -Threads can be used to perform complicated tasks in the background without interrupting the main program.
+-------------------------------------------------
+Creating a Thread: There are two ways to create a thread.
+-------------------------------------------------
+
+    1. It can be created by extending the Thread class and overriding its run() method:
+
+        public class Main extends Thread {
+          public void run() {
+            System.out.println("This code is running in a thread");
+          }
+        }
+
+
+    2. Another way to create a thread is to implement the Runnable interface:
+
+        public class Main implements Runnable {
+          public void run() {
+            System.out.println("This code is running in a thread");
+          }
+        }
+---------------------------------------------------
+Running Threads
+---------------------------------------------------
+If the class extends the Thread class, the thread can be run
+by creating an instance of the class and call its start() method
+
+----------------------------------------------------
+Important Methods of the Thread Class
+----------------------------------------------------
+    1.  start(): Starts the execution of the thread. The JVM calls the run() method of the thread.
+
+    2.  run(): Contains the code that constitutes the new thread. You can override this method to define the thread's behavior.
+
+    3.  sleep(long millis): Causes the currently executing thread to sleep (temporarily cease execution) for the specified number of milliseconds.
+
+    4.  join(): Waits for the thread to die. It can be used to wait for the completion of another thread.
+
+    5.  isAlive(): Tests if the thread is alive.
+
+    6.  getId(): Returns the identifier of the thread.
+
+    7.  getName() / setName(String name): Gets/Sets the name of the thread.
+
+    8.  getPriority() / setPriority(int priority): Gets/Sets the priority of the thread.
+
+    9.  currentThread(): Returns a reference to the currently executing thread object.
+----------------------------------------------
+Thread Synchronization
+----------------------------------------------
+When multiple threads access shared resources (like variables, files, etc.), it can lead to data inconsistency. Synchronization ensures that only one thread can access the resource at a time.
+
+Synchronized Method:
+
+
+class SharedResource {
+    synchronized void display() {
+        // synchronized code
+    }
+}
+Synchronized Block:
+
+
+class SharedResource {
+    void display() {
+        synchronized(this) {
+            // synchronized code
+        }
+    }
+}
+---------------------------------------
+Inter-thread Communication
+----------------------------------------
+    Java provides methods like wait(), notify(), and notifyAll() to facilitate communication between threads.
+
+    wait(): Causes the current thread to wait until another thread invokes the notify() or notifyAll() method.
+
+    notify(): Wakes up a single thread that is waiting on the object's monitor.
+
+    notifyAll(): Wakes up all the threads that are waiting on the object's monitor.
+Example:
+
+class SharedResource {
+    synchronized void display() {
+        try {
+            wait();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        System.out.println("Thread is notified");
+    }
+
+    synchronized void wakeup() {
+        notify();
+    }
+}
+
+-------------------------------------------------------------
+Thread Life Cycle
+-------------------------------------------------------------
+A thread in Java can be in one of the following states:
+
+    New: When a thread is created, but start() method is not yet invoked.
+
+    Runnable: When the thread is ready to run and waiting for CPU time.
+
+    Blocked: When the thread is waiting for a monitor lock to enter a synchronized block/method.
+
+    Waiting: When the thread is waiting indefinitely for another thread to perform a particular action.
+
+    Timed Waiting: When the thread is waiting for another thread to perform a particular action
+    within a specified waiting time.
+
+    Terminated: When the thread has finished its execution.
+------------------------------------------------------------------------------------------------------------
+
+    Thread Creation and Synchronization
+
+    class Counter {
+        private int count = 0;
+
+        public synchronized void increment() {
+            count++;
+        }
+
+        public int getCount() {
+            return count;
+        }
+    }
+
+    class CounterThread extends Thread {
+        private Counter counter;
+
+        public CounterThread(Counter counter) {
+            this.counter = counter;
+        }
+
+        public void run() {
+            for (int i = 0; i < 1000; i++) {
+                counter.increment();
+            }
+        }
+    }
+
+    public class Main {
+        public static void main(String[] args) throws InterruptedException {
+            Counter counter = new Counter();
+            CounterThread t1 = new CounterThread(counter);
+            CounterThread t2 = new CounterThread(counter);
+
+            t1.start();
+            t2.start();
+
+            t1.join();
+            t2.join();
+
+            System.out.println("Final count: " + counter.getCount());
+        }
+    }
+    In this example, the Counter class is a shared resource. The increment() method is synchronized to ensure thread safety. Two threads, t1 and t2, increment the counter concurrently, and the final count is printed after both threads have finished execution.
+
+
+
+
+
+
+
+
+
