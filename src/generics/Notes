@@ -1,0 +1,203 @@
+Generics
+--------------------------------
+-Generics in Java provide a way to create classes, interfaces, and methods that
+ operate on parameterized types.
+
+----------------------------------
+Benefits of Generics
+--------------------------------------
+    -Type Safety: Ensures that you only use a single type of object in a collection.
+
+    -Elimination of Casts: Reduces the need for casting.
+
+    -Code Reusability: Write more generic and reusable code.
+
+---------------------------------
+ Key Concepts of Java Generics
+---------------------------------
+ 1. Generic Class:
+
+  A class that can operate on objects of various types while providing compile-time type safety.
+
+     public class Box<T> {
+         private T content;
+
+         public void setContent(T content) {
+             this.content = content;
+         }
+
+         public T getContent() {
+             return content;
+         }
+     }
+      ----------------------------
+     public class Box<T> {
+     -----------------------------
+     -The Box class is declared as a generic class using angle brackets <T>.
+
+     -T is a type parameter that represents the type of the content stored in the box.
+
+     -It's a placeholder for the actual type that will be specified when an instance of Box is created.
+
+     ----------------------------
+     Instance Variable:
+     ----------------------------
+
+     private T content;
+
+     -This line declares an instance variable named content of type T.
+
+     -Since T is a type parameter, content can hold any object of any type.
+
+     ----------------------------
+     Setter Method:
+     ----------------------------
+
+         public void setContent(T content) {
+             this.content = content;
+         }
+
+         -This method setContent() sets the content of the box.
+
+         -It takes a parameter content of type T, which is the object to be stored in the box.
+
+         -this.content = content; assigns the parameter content to the instance variable content.
+
+      ----------------------------
+      Getter Method:
+      ----------------------------
+
+         public T getContent() {
+             return content;
+         }
+         -This method getContent() retrieves the content of the box.
+
+         -It returns the content stored in the box, which is of type T.
+
+         -The return type of the method is T, which matches the type parameter of the class.
+     ----------------------------
+     Usage Example:
+     ----------------------------
+     Here's an example of how you can use the Box<T> class:
+
+     public class Main {
+         public static void main(String[] args) {
+             // Create a box for Integer
+             Box<Integer> integerBox = new Box<>();
+             integerBox.setContent(42);
+             System.out.println("Content of the integer box: " + integerBox.getContent());
+
+             // Create a box for String
+             Box<String> stringBox = new Box<>();
+             stringBox.setContent("Hello, World!");
+             System.out.println("Content of the string box: " + stringBox.getContent());
+         }
+     }
+     -----------------------------------------------------------------
+     Explanation of Usage:
+     -----------------------------------------------------------------
+     Two instances of Box are created: one for Integer and one for String.
+
+     The setContent() method is used to set the content of each box.
+
+     The getContent() method is used to retrieve the content of each box.
+
+     Since the Box class is generic, it can be instantiated with different
+     types (Integer, String, etc.), allowing for type-safe storage and retrieval of content.
+
+ 2. Generic Method: A method that can operate on different types specified by the caller.
+
+     public <T> void printArray(T[] array) {
+         for (T element : array) {
+             System.out.print(element + " ");
+         }
+         System.out.println();
+     }
+ 3. Generic Interfaces
+   A generic interface allows you to define an interface with type parameters.
+
+      interface Container<T> {
+          void add(T item);
+          T get(int index);
+      }
+
+      // Implement the generic interface
+      class ContainerImpl<T> implements Container<T> {
+          private List<T> items = new ArrayList<>();
+
+          public void add(T item) {
+              items.add(item);
+          }
+
+          public T get(int index) {
+              return items.get(index);
+          }
+      }
+
+ 4. Bounded Type Parameters: Restrict the types that can be used as type arguments.
+    Bounded type parameters allow you to restrict the types that can be used as arguments for
+    a generic type
+
+     public <T extends Number> void printNumber(T number) {
+         System.out.println(number);
+     }
+
+ 5. Wildcard Arguments: Represent an unknown type. Useful in situations where you want to
+ specify that a method accepts a collection of a certain type or its subclasses/superclasses.
+
+     Unbounded Wildcards: <?>
+     Bounded Wildcards: <? extends Type> and <? super Type>
+
+     public void printList(List<?> list) {
+         for (Object elem : list) {
+             System.out.print(elem + " ");
+         }
+         System.out.println();
+     }
+ ---------------------------------------------------
+ Benefits of Using Generics
+ ---------------------------------------------------
+     1.Type Safety: Generics ensure that you get more robust code by catching errors at compile time.
+
+     2.Elimination of Casts: With generics, you don’t need to cast when retrieving elements from a collection.
+
+
+     List<String> list = new ArrayList<>();
+     list.add("hello");
+     String str = list.get(0); // No cast needed
+
+
+    3.Code Reusability: Generics enable the creation of more general-purpose libraries and algorithms.
+
+ --------------------------------------------------------------------------
+ Common Use Cases
+ ------------------------------------------------------------------------
+ Collections Framework: Most of the Java Collections Framework uses generics.
+
+     For example, List<E>, Map<K, V>, etc.
+
+     List<String> stringList = new ArrayList<>();
+     stringList.add("Java");
+
+ Generic Interfaces: Similar to classes, interfaces can also be generic.
+
+     public interface Pair<K, V> {
+         K getKey();
+         V getValue();
+     }
+------------------------------------------------------------------
+ Conclusion
+-----------------------------------------------------------------
+
+ Generics in Java are a powerful feature that promotes type safety and reusability.
+
+ By understanding and applying generics, you can write more robust and flexible code.
+
+ They are an essential tool for any Java developer aiming to write modern, efficient,
+ and maintainable applications.
+
+
+
+
+
+
