@@ -13,53 +13,73 @@ Multithreading:
         multithreading tasks.
 
         Using ExecutorService in Java provides a powerful and flexible way to manage thread pools and
-        execute tasks asynchronously. Here are several ways to achieve multithreading using
-        ExecutorService:
+        execute tasks asynchronously. Here are several ways to achieve multithreading using ExecutorService:
         -------------------------------------------
         There are 3 ways to achieve multithreading using ExecutorService
         -------------------------------------------
-        1. Fixed Thread Pool
-        A fixed thread pool creates a pool with a fixed number of threads. If all threads are active,
-        additional tasks wait in a queue until a thread is available.
+            1. Thread pool
+            ------------------------------------------
+                i. Fixed Thread Pool
+                A fixed thread pool creates a pool with a fixed number of threads. If all threads are active,
+                additional tasks wait in a queue until a thread is available.
 
-        2. Cached Thread Pool
-          A cached thread pool creates new threads as needed but reuses previously created threads
-          when available. This pool is ideal for executing many short-lived asynchronous tasks.
+                ii. Cached Thread Pool
+                  A cached thread pool creates new threads as needed but reuses previously created threads
+                  when available. This pool is ideal for executing many short-lived asynchronous tasks.
+
+            2.ForkJoinPool
+            --------------------------------------------
+              - ForkJoinPool is part of the java.util.concurrent package and is designed for work that
+              can be broken down into smaller tasks and executed in parallel.
+
+              - It is particularly well-suited for divide-and-conquer algorithms.
+
+            3. Concurrency Utilities
+            ---------------------------------------------
+               The java.util.concurrent package provides various utilities to manage synchronization and
+               coordination between threads. Here are a few key utilities:
+
+                   i. CountDownLatch
+                       CountDownLatch allows one or more threads to wait until a set of operations being
+                       performed by other threads is complete.
+
+                   ii. CyclicBarrier
+                        CyclicBarrier allows a set of threads to wait for each other to reach a
+                        common barrier point.
+                   iii. Semaphore
+                         Semaphore controls access to a shared resource through permits.
+
+                    --------------------------------------------------------------------------------
+                    Best Uses:
+                    --------------------------------------------------------------------------------
+                    CountDownLatch: Best for one-time events where you need a thread
+                    (or threads) to wait for a specific number of operations to complete.
+
+                    CyclicBarrier: Best for scenarios where multiple threads need to repeatedly
+                    wait for each other at a barrier point before proceeding.
+
+                    Semaphore: Best for limiting the number of threads that can access a
+                    resource or perform a task simultaneously.
 
 
+4. Scheduled Thread Pool
+  A scheduled thread pool is used to schedule tasks to run after a delay or to execute periodically.
+
+5. Callable and Future
+Using Callable and Future, you can submit tasks that return results or throw exceptions.
 
 
-
-
-        1. Fixed Thread Pool
-        A fixed thread pool creates a pool with a fixed number of threads. If all threads are active, additional tasks wait in a queue until a thread is available.
-
-4.  Using Future and Callable
-        If you need to return a result from a thread, you can use Callable along with Future.
-
-5. Using ScheduledExecutorService for Scheduled Tasks
-        To schedule tasks to run after a delay or to execute periodically, use ScheduledExecutorService.
-
+--------------------------------------------------------------------------------------------------------
 In Java, achieving multithreading involves creating and managing multiple threads that run concurrently.
+---------------------------------------------------------------------------------------------------------
 
-Thread Creation: You can create a thread by extending Thread or implementing Runnable.
+    Thread Creation: You can create a thread by extending Thread or implementing Runnable.
 
-ExecutorService: Use ExecutorService for managing a pool of threads efficiently.
+    ExecutorService: Use ExecutorService for managing a pool of threads efficiently.
 
-Synchronization: Ensure thread safety using synchronization mechanisms
-(e.g., synchronized blocks, Locks, and concurrency utilities like CountDownLatch, CyclicBarrier, and Semaphore).
+    Synchronization: Ensure thread safety using synchronization mechanisms
+    (e.g., synchronized blocks, Locks, and concurrency utilities like CountDownLatch, CyclicBarrier, and Semaphore).
 
-Callable and Future: Use Callable and Future for tasks that return results.
+    Callable and Future: Use Callable and Future for tasks that return results.
 
-Scheduled Tasks: Use ScheduledExecutorService for scheduling tasks.
---------------------------------------------------------------------------------
-Best Uses:
---------------------------------------------------------------------------------
-CountDownLatch: Best for one-time events where you need a thread
-(or threads) to wait for a specific number of operations to complete.
-
-CyclicBarrier: Best for scenarios where multiple threads need to repeatedly
-wait for each other at a barrier point before proceeding.
-
-Semaphore: Best for limiting the number of threads that can access a
-resource or perform a task simultaneously.
+    Scheduled Tasks: Use ScheduledExecutorService for scheduling tasks.
