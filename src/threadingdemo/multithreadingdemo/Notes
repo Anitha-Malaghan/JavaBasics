@@ -83,3 +83,9 @@ In Java, achieving multithreading involves creating and managing multiple thread
     Callable and Future: Use Callable and Future for tasks that return results.
 
     Scheduled Tasks: Use ScheduledExecutorService for scheduling tasks.
+
+---------------------------------------------------------------------------
+References:
+--------------------------------------------------------------------------
+https://chatgpt.com/c/9d07f381-3ab0-42a9-a82a-fc785e573f39
+https://www.w3schools.com/java/java_threads.asp
