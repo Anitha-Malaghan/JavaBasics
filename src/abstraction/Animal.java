@@ -1,4 +1,4 @@
-package abstractclassdemo;
+package abstraction;
 
 public abstract class Animal {
     //Abstract method in th parent class

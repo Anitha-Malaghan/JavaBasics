@@ -1,4 +1,4 @@
-package abstractclassdemo;
+package abstraction;
 
 
 public class Main {
