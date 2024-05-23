@@ -1,0 +1,94 @@
+Classes
+--------------------------------------------------
+-A class is a blueprint for creating objects.
+
+-It defines a datatype by bundling data (fields) and methods (functions) that operate on the
+data into a single unit.
+--------------------------------------------------
+A class can contain:
+--------------------------------------------------
+
+    Fields: Variables that hold data.
+
+    Methods: Functions that define behaviors or actions.
+
+    Constructors: Special methods used to initialize objects.
+
+    Inner Classes, Interfaces, Enums: Additional structures within the class.
+
+--------------------------------------------------
+Objects
+--------------------------------------------------
+An object is an instance of a class.
+
+It is created using the new keyword followed by a call to a class constructor.
+
+Each object has its own state and can use the methods defined in its class.
+
+--------------------------------------------------
+Why Do We Need Classes and Objects?
+--------------------------------------------------
+
+Encapsulation:
+    Classes allow us to bundle data and methods that operate on the data into a single
+    unit, hiding the implementation details and exposing only the necessary parts.
+    This promotes modularity and code organization.
+
+Reusability:
+    Once a class is defined, it can be used to create multiple objects, enabling code reuse.
+    The same class can be instantiated multiple times to create distinct objects with different states.
+
+Inheritance:
+    Classes can inherit from other classes, allowing for hierarchical classifications.
+    This promotes code reuse and the creation of more complex systems by building upon existing code.
+
+Polymorphism:
+    Classes enable polymorphism, where a single function can operate on different types of objects,
+    allowing for flexible and dynamic code.
+
+Abstraction:
+    Classes help in abstracting complex realities into simplified models by focusing on essential
+    qualities and hiding unnecessary details.
+
+--------------------------------------------------
+Key Concepts in OOP with Classes and Objects
+--------------------------------------------------
+Instance Variables and Methods: Belong to the instance (object) of a class.
+
+Class Variables (Static Fields) and Methods: Belong to the class itself and are shared among all
+instances.
+
+Constructor: A special method that is called when an object is instantiated.
+It initializes the object.
+
+Inheritance: Mechanism where a new class (subclass) inherits fields and methods
+from an existing class (superclass).
+
+Polymorphism: Ability to treat objects of different classes through
+the same interface, typically via inheritance and method overriding.
+
+Encapsulation: Keeping fields within a class private and providing access through
+public methods (getters and setters).
+
+These concepts are foundational in Java and are crucial for designing robust,
+scalable, and maintainable software.
+
+-----------------------------------------------------
+How custom constructor works internally
+------------------------------------------------------
+-Constructor in java are designed to initialize objects rather than computing the values,
+ which is why they dont hav return type
+
+-Creates an objects with attributes set to default values
+
+-Start executing the lines in the custom constructor
+
+
+
+
+
+
+
+
+
+
