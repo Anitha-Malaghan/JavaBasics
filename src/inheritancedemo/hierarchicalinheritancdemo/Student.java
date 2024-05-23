@@ -1,6 +1,6 @@
-package inheritancedemo;
+package inheritancedemo.hierarchicalinheritancdemo;
 
-public class Student extends User{
+public class Student extends User {
     //Declaring instance variables
     private int problemSolvingPercentage;
     private int attendance;

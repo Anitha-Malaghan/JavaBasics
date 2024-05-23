@@ -1,6 +1,6 @@
-package inheritancedemo;
+package inheritancedemo.hierarchicalinheritancdemo;
 
-public class Mentor extends User{
+public class Mentor extends User {
     private String companyName;
     private int yearOfExperience;
     public Mentor(Long id, String name, String email, String companyName, int yearOfExperience){

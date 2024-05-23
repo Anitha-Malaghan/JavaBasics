@@ -1,4 +1,4 @@
-package inheritancedemo;
+package inheritancedemo.hierarchicalinheritancdemo;
 
 public class User {
     Long id;

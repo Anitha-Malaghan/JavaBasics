@@ -1,0 +1,38 @@
+Inheritance
+---------------------------------------------------------------------
+-Inheritance is a fundamental concept in object-oriented programming (OOP) that allows a new class
+(subclass or derived class) to inherit properties and behaviors (fields and methods) from an
+existing class (superclass or base class).
+
+-In Java, inheritance is implemented using the extends keyword to indicate that one class inherits
+from another.
+
+-Subclasses inherit all accessible members (fields and methods) of their superclass,
+except for constructors and private members, which are not inherited but can be accessed through
+public or protected methods.
+
+---------------------------------------------------------------------
+Sure, here are the key points about inheritance listed:
+---------------------------------------------------------------------
+1.  Code Reusability
+2.  Relationships
+3.  Hierarchy
+4.  Extensibility
+5.  Polymorphism
+6.  Access Control
+7.  Constructor Chaining
+8.  Multiple Inheritance (Through Interfaces)
+9. Superclass and Subclass Relationship
+
+---------------------------------------------------------------------
+Types of inheritance
+---------------------------------------------------------------------
+1. Single Inheritance: One class extends another class.
+
+2. Multilevel Inheritance: A chain of inheritance with multiple levels.
+
+3. Hierarchical Inheritance: Multiple classes inherit from a single class.
+
+4. Multiple Inheritance (Through Interfaces): A class implements multiple interfaces.
+
+5. Hybrid Inheritance (Through Interfaces): Combines different inheritance types using interfaces.

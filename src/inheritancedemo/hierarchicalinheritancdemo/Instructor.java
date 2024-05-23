@@ -1,6 +1,6 @@
-package inheritancedemo;
+package inheritancedemo.hierarchicalinheritancdemo;
 
-public class Instructor extends User{
+public class Instructor extends User {
     private String companyName;
     private int ratings;
     public Instructor(Long id, String name, String email, String companyName, int ratings){
