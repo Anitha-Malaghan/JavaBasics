@@ -1,0 +1,22 @@
+Abstraction
+----------------------------------------
+-Representing complex software system in terms of an idea that causes the behaviour in the system.
+or
+-Thinking in terms f an idea by hiding away things that are not required by the clients.
+
+------------------------------------------
+Idea
+------------------------------------------
+idea is anything that has an attributes and behaviour.
+
+--------------------------------------------
+Ideas of Neosoft company
+--------------------------------------------
+Employee
+Project
+Clients
+Dashboard
+Mentor
+Team lead
+Delivery manager
+
